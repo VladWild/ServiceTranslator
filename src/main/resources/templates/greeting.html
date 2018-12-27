@@ -5,6 +5,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<p th:text="'Hello, ' + ${name} + '!'" />
+<h2>Текст из url строки:</h2>
+<p th:text="${textInput}"></p>
+<hr>
+<h2>Переведенный текст:</h2>
+<p th:text="${textOutput}"></p>
 </body>
 </html>

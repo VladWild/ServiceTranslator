@@ -1,6 +1,7 @@
 package com.servicetranslator.example.controllers;
 
-import com.servicetranslator.example.dto.Response;
+import com.servicetranslator.example.services.TranslatorService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,10 +9,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class TranslatorWs {
+    @Autowired
+    private TranslatorService translatorService;
 
-    @GetMapping("/greeting")
-    public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
-        model.addAttribute("name", name);
+    /*public TranslatorWs(TranslatorService translatorService){
+        this.translatorService = translatorService;
+    }*/
+
+    @GetMapping("/")
+    public String greeting(@RequestParam(name="text", required=false, defaultValue="Текста нет") String text, Model model) {
+        model.addAttribute("textInput", text);
+        model.addAttribute("textOutput", text);
         return "greeting";
     }
 

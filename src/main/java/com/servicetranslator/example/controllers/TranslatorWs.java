@@ -9,15 +9,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class TranslatorWs {
-    @Autowired
     private TranslatorService translatorService;
 
-    /*public TranslatorWs(TranslatorService translatorService){
+    public TranslatorWs(TranslatorService translatorService){
         this.translatorService = translatorService;
-    }*/
+    }
 
     @GetMapping("/")
     public String greeting(@RequestParam(name="text", required=false, defaultValue="Текста нет") String text, Model model) {
+        translatorService.hello();
         model.addAttribute("textInput", text);
         model.addAttribute("textOutput", text);
         return "greeting";

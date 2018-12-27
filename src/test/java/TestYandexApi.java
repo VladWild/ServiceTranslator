@@ -1,9 +1,11 @@
+import com.servicetranslator.example.data.ResponseWord;
 import com.sun.jndi.toolkit.url.Uri;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.io.BufferedReader;
@@ -11,8 +13,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLEncoder;
-import java.nio.charset.Charset;
+import java.util.Arrays;
+
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TestYandexApi {
@@ -50,7 +54,7 @@ public class TestYandexApi {
     @Test
     public void testWordYandexServiceWithSpring() throws IOException {
         String rusWord = "цена";
-        String engWord = "hi";
+        String[] engWord = new String[]{"price"};
 
         final String URI = String.format(FORMAT_URL,
                 PATH, KEY, rusWord, LANG_RUS_ENG);
@@ -59,20 +63,21 @@ public class TestYandexApi {
 
         HttpHeaders headers = new HttpHeaders();
         headers.set("Accept", MediaType.APPLICATION_JSON_UTF8_VALUE);
-        //headers.setAcceptCharset(Charset);
 
-       /*UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(URL + PATH)
+        UriComponents uri = UriComponentsBuilder.fromHttpUrl(URL + PATH)
                 .queryParam("key", KEY)
-                .queryParam("text", URLEncoder.encode(rusWord, "UTF-8"))
-                .queryParam("lang", LANG_RUS_ENG);*/
+                .queryParam("text", rusWord)
+                .queryParam("lang", LANG_RUS_ENG).build();
 
-        HttpEntity<String> entity = new HttpEntity<>(headers);
+        HttpEntity<ResponseWord> entity = new HttpEntity<>(headers);
 
-        System.out.println(URI);
-        ResponseEntity<String> response = restTemplate.exchange(URI,
-                HttpMethod.GET, entity, String.class);
+        ResponseEntity<ResponseWord> response = restTemplate.exchange(uri.toUriString(),
+                HttpMethod.GET, entity, ResponseWord.class);
 
-        System.out.println(response.getBody());
+        ResponseWord responseWord = response.getBody();
+
+        assert responseWord != null;
+        assertArrayEquals(responseWord.getText(), engWord);
     }
 
 

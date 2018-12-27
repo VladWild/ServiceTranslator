@@ -9,9 +9,12 @@
             http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"
        default-lazy-init="true">
 
+    <!--Parsers-->
+    <bean id="textParser" class="com.servicetranslator.example.parsers.SimpleParser"/>
 
+    <!--Services-->
     <bean id="translatorService" class="com.servicetranslator.example.services.TranslatorService">
-
+        <constructor-arg ref = "textParser"/>
     </bean>
 
     <!--Controllers-->

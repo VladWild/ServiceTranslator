@@ -16,11 +16,12 @@ public class TranslatorWs {
     }
 
     @GetMapping("/")
-    public String greeting(@RequestParam(name="text", required=false, defaultValue="Текста нет") String text, Model model) {
+    public String greeting(@RequestParam(name="text",
+            required=false,
+            defaultValue="Текста нет") String text, Model model) {
         translatorService.hello();
         model.addAttribute("textInput", text);
         model.addAttribute("textOutput", text);
-        return "greeting";
+        return "main";
     }
-
 }

@@ -1,11 +1,15 @@
 package com.servicetranslator.example.processing;
 
 import com.servicetranslator.example.data.ResponseWord;
+import lombok.extern.log4j.Log4j;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.util.Arrays;
+
+@Log4j
 public class RequestWord implements Runnable{
     private static final String URL = "https://translate.yandex.net";
     private static final String PATH = "/api/v1.5/tr.json/translate";
@@ -37,6 +41,6 @@ public class RequestWord implements Runnable{
 
         ResponseWord responseWord = response.getBody();
 
-        System.out.println(responseWord);
+        log.info("Слово: " + word + " | Перевод: " + Arrays.stream(responseWord.getText()).reduce("", (a, e) -> a + e + " "));
     }
 }

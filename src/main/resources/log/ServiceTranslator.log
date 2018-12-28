@@ -1,0 +1,5 @@
+2018-12-28 17:15:55,649 DEBUG rvicetranslator.example.services.TranslatorService - Множество слов: мир, досвидание, привет, 
+2018-12-28 17:15:55,649 DEBUG rvicetranslator.example.services.TranslatorService - Количество слов - 3
+2018-12-28 17:15:56,122 INFO  m.servicetranslator.example.processing.RequestWord - Слово: мир | Перевод: the world 
+2018-12-28 17:15:56,136 INFO  m.servicetranslator.example.processing.RequestWord - Слово: досвидание | Перевод: goodbye 
+2018-12-28 17:15:56,218 INFO  m.servicetranslator.example.processing.RequestWord - Слово: привет | Перевод: hi 

@@ -1,7 +1,7 @@
 package com.servicetranslator.example.parsers;
 
-import java.util.List;
+import java.util.Set;
 
 public interface Parser {
-    List<String> getWords(String text);
+    Set<String> getWords(String text);
 }

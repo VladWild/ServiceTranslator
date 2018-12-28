@@ -1,0 +1,6 @@
+2018-12-28 14:52:15,277 DEBUG rvicetranslator.example.services.TranslatorService - Множество слов: Текста, нет, 
+2018-12-28 14:52:15,278 DEBUG rvicetranslator.example.services.TranslatorService - Количество слов - 2
+2018-12-28 14:53:26,970 DEBUG rvicetranslator.example.services.TranslatorService - Множество слов: Текста, нет, 
+2018-12-28 14:53:26,970 DEBUG rvicetranslator.example.services.TranslatorService - Количество слов - 2
+2018-12-28 14:54:00,297 DEBUG rvicetranslator.example.services.TranslatorService - Множество слов: привет, до, пока, после, 
+2018-12-28 14:54:00,298 DEBUG rvicetranslator.example.services.TranslatorService - Количество слов - 4

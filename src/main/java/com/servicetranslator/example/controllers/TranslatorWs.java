@@ -15,7 +15,7 @@ public class TranslatorWs {
     }
 
     @GetMapping("/")
-    public String greeting(@RequestParam(name="text",
+    public String translate(@RequestParam(name="text",
             required=false,
             defaultValue="Текста нет") String text,
                            Model model) {

@@ -1,2 +1,7 @@
+com\servicetranslator\example\data\ResponseWord.class
 com\servicetranslator\example\parsers\Parser.class
 com\servicetranslator\example\parsers\SimpleParser.class
+com\servicetranslator\example\processing\RequestWord.class
+com\servicetranslator\example\controllers\TranslatorWs.class
+com\servicetranslator\example\services\TranslatorService.class
+com\servicetranslator\example\Application.class

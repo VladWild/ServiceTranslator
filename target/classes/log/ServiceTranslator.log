@@ -1,14 +1,6 @@
-2018-12-28 17:14:26,692 DEBUG rvicetranslator.example.services.TranslatorService - Множество слов: Текста, нет, 
-2018-12-28 17:14:26,693 DEBUG rvicetranslator.example.services.TranslatorService - Количество слов - 2
-2018-12-28 17:14:27,121 INFO  m.servicetranslator.example.processing.RequestWord - Слово: нет | Перевод: no 
-
-2018-12-28 17:14:27,164 INFO  m.servicetranslator.example.processing.RequestWord - Слово: Текста | Перевод: Text 
-
-2018-12-28 17:14:35,234 DEBUG rvicetranslator.example.services.TranslatorService - Множество слов: мир, привет, пока, 
-2018-12-28 17:14:35,234 DEBUG rvicetranslator.example.services.TranslatorService - Количество слов - 3
-2018-12-28 17:14:35,372 INFO  m.servicetranslator.example.processing.RequestWord - Слово: пока | Перевод: yet 
-
-2018-12-28 17:14:35,372 INFO  m.servicetranslator.example.processing.RequestWord - Слово: мир | Перевод: the world 
-
-2018-12-28 17:14:35,382 INFO  m.servicetranslator.example.processing.RequestWord - Слово: привет | Перевод: hi 
-
+2018-12-28 17:24:52,393 DEBUG rvicetranslator.example.services.TranslatorService - Множество слов: привет, 
+2018-12-28 17:24:52,394 DEBUG rvicetranslator.example.services.TranslatorService - Количество слов - 1
+2018-12-28 17:24:52,993 INFO  m.servicetranslator.example.processing.RequestWord - Слово: привет | Перевод: hi 
+2018-12-28 17:25:18,383 DEBUG rvicetranslator.example.services.TranslatorService - Множество слов: привет, 
+2018-12-28 17:25:18,383 DEBUG rvicetranslator.example.services.TranslatorService - Количество слов - 1
+2018-12-28 17:25:18,501 INFO  m.servicetranslator.example.processing.RequestWord - Слово: привет | Перевод: hi 

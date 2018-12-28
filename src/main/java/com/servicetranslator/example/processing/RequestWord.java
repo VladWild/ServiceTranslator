@@ -1,33 +1,28 @@
 package com.servicetranslator.example.processing;
 
 import com.servicetranslator.example.data.ResponseWord;
-import lombok.extern.log4j.Log4j;
-import org.springframework.http.*;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.Arrays;
 
-@Log4j
-public class RequestWord implements Runnable{
+@Slf4j
+public class RequestWord {
     private static final String URL = "https://translate.yandex.net";
     private static final String PATH = "/api/v1.5/tr.json/translate";
     private static final String KEY = "trnsl.1.1.20181227T101347Z.59ae4b99574d0fee.4d03b4acf277f3c7c2f5d8300038bcfd0b149e73";
     private static final String LANG_RUS_ENG = "ru-en";
 
-    private String word;
+    private RestTemplate restTemplate = new RestTemplate();
 
-    public RequestWord(String word) {
-        this.word = word;
-    }
-
-    @Override
-    public void run() {
-        RestTemplate restTemplate = new RestTemplate();
-
+    public String getNewWord(String word) {
         HttpHeaders headers = new HttpHeaders();
-        headers.set("Accept", MediaType.APPLICATION_JSON_UTF8_VALUE);
 
         UriComponents uri = UriComponentsBuilder.fromHttpUrl(URL + PATH)
                 .queryParam("key", KEY)
@@ -40,7 +35,8 @@ public class RequestWord implements Runnable{
                 HttpMethod.GET, entity, ResponseWord.class);
 
         ResponseWord responseWord = response.getBody();
-
         log.info("Слово: " + word + " | Перевод: " + Arrays.stream(responseWord.getText()).reduce("", (a, e) -> a + e + " "));
+
+        return Arrays.stream(responseWord.getText()).reduce("", (a, e) -> a + e + " ");
     }
 }

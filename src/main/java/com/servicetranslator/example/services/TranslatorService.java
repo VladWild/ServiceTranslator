@@ -11,7 +11,7 @@ public class TranslatorService {
         this.parser = parser;
     }
 
-    public void hello(){
+    public void wordProcessing(String text){
         System.out.println("Я в TranslatorService");
     }
 }

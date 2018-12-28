@@ -19,9 +19,8 @@ public class TranslatorWs {
             required=false,
             defaultValue="Текста нет") String text,
                            Model model) {
-        translatorService.hello();
+        translatorService.wordProcessing(text);
         model.addAttribute("textInput", text);
-        model.addAttribute("textOutput", text);
         return "main";
     }
 }
